@@ -28,9 +28,18 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css" , 
+              "node_modules/@fortawesome/fontawesome-free/css/all.css" , 
+              "node_modules/wow.js/css/libs/animate.css" ,
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js" ,
+              "node_modules/popper.js/dist/umd/popper.min.js" ,
+              "node_modules/bootstrap/dist/js/bootstrap.min.js" ,
+              "node_modules/wow.js/dist/wow.min.js",
+              "node_modules/@fortawesome/fontawesome-free/js/all.js"
+            ]
           },
           "configurations": {
             "production": {
