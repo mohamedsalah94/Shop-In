@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
 import { TermsComponent } from './terms/terms.component';
 import { LoadingpageComponent } from './loadingpage/loadingpage.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
@@ -14,7 +17,10 @@ import { LoadingpageComponent } from './loadingpage/loadingpage.component';
     AppComponent,
     ProductsComponent,
     TermsComponent,
-    LoadingpageComponent
+    LoadingpageComponent,
+    LoginComponent,
+    RegisterComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
