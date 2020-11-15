@@ -4,7 +4,9 @@ import { ProductsComponent } from './products/products.component';
 import { TermsComponent } from './terms/terms.component';
 
 const routes: Routes = [
- 
+ {path:'',redirectTo:'home',pathMatch:"full"},
+ {path:'terms',component:TermsComponent},
+  {path:'product',component:ProductsComponent},
 
 ];
 
