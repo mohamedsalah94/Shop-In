@@ -10,6 +10,9 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { ProductsComponent } from './products/products.component';
 import { TermsComponent } from './terms/terms.component';
 import { LoadingpageComponent } from './loadingpage/loadingpage.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 import { NotfoundComponent } from './notfound/notfound.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
@@ -37,6 +40,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 
     ProductsComponent,
     TermsComponent,
+    LoadingpageComponent,
+    LoginComponent,
+    RegisterComponent,
+    NavbarComponent
+
     LoadingpageComponent
 
     NotfoundComponent,
