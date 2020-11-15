@@ -1,5 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+import { CheckoutComponent } from './checkout/checkout.component';
+import { HomeComponent } from './home/home.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+
+const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: "full" },
+  { path: 'home', component: HomeComponent },
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'dashboard', component: UserDashboardComponent }
+
 import { ProductsComponent } from './products/products.component';
 import { TermsComponent } from './terms/terms.component';
 
@@ -34,6 +45,7 @@ const routes: Routes = [
 
   
  
+
 ];
 
 @NgModule({
