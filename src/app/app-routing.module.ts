@@ -8,7 +8,6 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:"full"},
-  {path:`home`,component:HomeComponent},
   {path:`contact-us`,component:ContactUsComponent},
   {path:`details`,component:ProductDetailsComponent},
   {path:`wishlist`,component:WishlistComponent},
