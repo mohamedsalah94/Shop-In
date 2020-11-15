@@ -25,6 +25,8 @@ const routes: Routes = [
   {path:`wishlist`,component:WishlistComponent},
   {path:`shoppingCart`,component:ShoppingCartComponent}  
 
+  
+ 
 ];
 
 @NgModule({
