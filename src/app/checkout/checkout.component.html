@@ -1,0 +1,165 @@
+<!-- start check out  -->
+
+<section class="py-5" >
+    <div class="container">
+        <!-- checkout header  -->
+        <div class="check-out-title text-center">
+            <h2>Check Out</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb text-center">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Shopping Cart</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Check out</li>
+                </ol>
+            </nav>
+        </div>
+        <!-- checkout header  -->
+
+        <!-- shipping address -->
+
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="shipping-address-box bg-white   shadow mt-3">
+
+                    <div class="shipping-address-title text-center ">
+                        <h6 class="py-3 m-0">Shipping Address</h6>
+                    </div>
+                    <div class="shipping-address-content p-5">
+                        <div class="form-group">
+                            <label>Enter Your Shipping Address</label>
+                            <input class="w-100 " type="text" placeholder="ex: 600 Fiesal Street,Giza,Egypt">
+                        </div>
+                    </div>
+                    <div class="shipping-address-footer text-center">
+
+                        <a href="#" class="py-3"><i class="fas fa-less-than mr-2 fa-1x"></i>Edit Your Shipping
+                            Address</a>
+                    </div>
+                </div>
+            </div>
+            <!-- shipping address -->
+            <!-- summary bar  -->
+            <div class="col-lg-3">
+                <div class="summary-bar-box  bg-white  shadow mt-3">
+                    <div class="summary-bar-title text-center ">
+                        <h6 class="py-3 m-0">Summary</h6>
+                    </div>
+                    <div class="summary-bar-content p-3">
+                        <div class="form-group">
+                            <label>Apply Discount</label>
+                            <input class="w-100" type="text" placeholder="Promo Code">
+                            <button class="w-100 mt-3 btn" disabled>Apply Discount</button>
+                        </div>
+                        <table class="w-100">
+                            <tr>
+                                <th>SubTotal</th>
+                                <th>500.00 L.E</th>
+                            </tr>
+                            <tr>
+                                <th>Promo</th>
+                                <th>00.00 L.E</th>
+                            </tr>
+                            <tr>
+                                <th>Total</th>
+                                <th>500.00 L.E</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="summary-bar-footer text-center">
+
+                        <a href="#" class="py-3"><i class="fas fa-less-than mr-2 fa-1x"></i>Edit Shopping Cart
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- summary bar  -->
+
+        </div>
+        <div class="row">
+            <!-- payment methods -->
+            <div class="col-lg-9">
+                <div class="payment-method-box  shadow bg-white mt-3">
+                    <div class="payment-method-title text-center">
+                        <h6 class="py-3 m-0">Payment Method</h6>
+                    </div>
+                    <div class="payment-method-content p-4">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="list-group text-center" id="list-tab" role="tablist">
+
+                                    <a class="list-group-item list-group-item-action active" id="list-creditcard-list"
+                                        data-toggle="list" href="#list-creditcard" role="tab"
+                                        aria-controls="creditcard"><i class="far fa-credit-card mr-2 fa-2x"></i>Credit
+                                        Card</a>
+
+                                    <a class="list-group-item list-group-item-action " id="list-paypal-list"
+                                        data-toggle="list" href="#list-paypal" role="tab" aria-controls="paypal"><i
+                                            class="fab fa-paypal mr-2 fa-2x"></i>Paypal</a>
+
+                                    <a class="list-group-item list-group-item-action " id="list-cash-list"
+                                        data-toggle="list" href="#list-cash" role="tab" aria-controls="cash"> <i
+                                            class="fas fa-hand-holding-usd mr-2 fa-2x"></i>Cash</a>
+                                </div>
+                            </div>
+                            <!-- payment menu  -->
+                            <div class="col-8">
+
+                                <div class="tab-content" id="nav-tabContent">
+
+                                    <div class="tab-pane fade show active" id="list-creditcard" role="tabpanel"
+                                        aria-labelledby="list-creditcard-list">
+                                        <div class="form-group">
+                                            <input class=" w-100" type="number" placeholder="Card Number">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="w-100" type="date" placeholder="Expairation">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="w-100" type="password" placeholder="Security Code">
+                                        </div>
+                                        <button class="btn w-100" disabled>Confirm Order</button>
+
+                                    </div>
+
+                                    <div class="tab-pane fade show " id="list-paypal" role="tabpanel"
+                                        aria-labelledby="list-paypal-list">
+                                        <div class="form-group">
+                                            <input class=" w-100" type="number" placeholder="Card Number">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="w-100" type="date" placeholder="Expairation">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="w-100" type="password" placeholder="Security Code">
+                                        </div>
+                                        <button class="btn w-100" disabled>Confirm Order</button>
+                                    </div>
+
+                                    <div class="tab-pane fade show " id="list-cash" role="tabpanel"
+                                        aria-labelledby="list-cash-list">
+                                        <div class="form-group">
+                                            <input class="w-100" type="password" placeholder="">
+                                        </div>
+                                        <button class="btn w-100" disabled>Confirm Order</button>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- payment menu  -->
+
+                        </div>
+                    </div>
+                    <div class="payment-method-footer text-center">
+
+                        <a href="#" class="py-3"><i class="fas fa-less-than mr-2 fa-1x"></i>Edit Your Payment Method</a>
+                    </div>
+                </div>
+            </div>
+            <!-- payment methods -->
+        </div>
+
+
+    </div>
+</section>
