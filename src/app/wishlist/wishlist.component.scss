@@ -1,0 +1,20 @@
+$color-mine:#F3F4F7;
+$color-mine2:#7571f9;
+.bg-mine{
+    background-color: $color-mine;
+}
+
+.radius{
+    border-radius: 14px;
+
+}
+
+.shoppingBtn{
+    border: 1px solid transparent !important;
+    border-top: 1px solid rgba(212, 212, 212, 0.767) !important;
+    &:hover{
+        border-top-left-radius: 0px !important;
+        border-top-right-radius: 0px !important;
+        color: white !important;
+    }
+}

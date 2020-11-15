@@ -1,0 +1,137 @@
+section {
+    background-color: #f3f4f7;
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Poppins", sans-serif;
+}
+input {
+    background-color: #f3f4f7;
+    border: 1px solid #f3f4f7;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
+    border-radius: 14px;
+    padding: 12px 18px;
+    outline: none;
+    transition: 500ms all;
+}
+input:focus {
+    background-color: #fff;
+}
+/* checkout title */
+.breadcrumb {
+    display: flex;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: transparent;
+}
+a {
+    color: #7571f9;
+    text-decoration: none !important;
+    font-weight: 500;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+    font-weight: 700;
+}
+/* checkout title */
+/* =============================================== */
+/*start shipping address */
+.shipping-address-title,
+.summary-bar-title,
+.payment-method-title {
+    border-bottom: 1px solid #f3f4f7;
+}
+.shipping-address-title h6,
+.summary-bar-title h6,
+.payment-method-title h6 {
+    font-weight: 700;
+    color: #3b424e;
+    padding: 10px 0;
+    font-size: 0.9rem;
+}
+.shipping-address-footer,
+.summary-bar-footer,
+.payment-method-footer {
+    border-top: 1px solid #f3f4f7;
+}
+.shipping-address-footer a,
+.summary-bar-footer a,
+.payment-method-footer a {
+    color: #3b424e;
+    font-weight: 700;
+    transition: 500ms all;
+    display: block;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+}
+.shipping-address-footer i,
+.summary-bar-footer i,
+.payment-method-footer i {
+    font-size: 0.6rem;
+    transform: translateY(-20%);
+}
+.shipping-address-footer a:hover,
+.summary-bar-footer a:hover,
+.payment-method-footer a:hover {
+    background-color: #7571f9;
+    color: white;
+}
+
+/*end shipping address */
+
+/* ================================================================== */
+/*start Summary Bar*/
+.summary-bar-box .summary-bar-content button,
+.payment-method-box .payment-method-content button {
+    background-color: #7571f9;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 14px;
+}
+.summary-bar-box .summary-bar-content button:disabled,
+.payment-method-box .payment-method-content button:disabled {
+    cursor: not-allowed;
+}
+table tr th:first-child {
+    color: #3b424e;
+}
+table tr th:last-child {
+    color: #8493aa;
+}
+@media screen and (max-width: 992px) {
+    .summary-bar-box {
+        position: static;
+    }
+}
+/*end Summary Bar*/
+/*start payment method*/
+.list-group-item.active {
+    background-color: #7571f9;
+    border-color: #7571f9;
+    color: #fff;
+}
+.list-group-item-action {
+    color: #3b424e;
+    font-weight: 700;
+    transition: 500ms background-color;
+}
+.list-group-item-action:hover {
+    background-color: #b1aeff;
+}
+/*end payment method*/
+.summary-bar-box,
+.shipping-address-box,
+.payment-method-box {
+    border-radius: 14px;
+}
+input[type="date" i] {
+    color: gray;
+}
+// =======================================
