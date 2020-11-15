@@ -1,0 +1,58 @@
+$color-mine:#F3F4F7;
+$color-mine2:#7571f9;
+.bg-mine{
+    background-color: $color-mine;
+}
+
+.bg-mine2{
+    background-color: $color-mine2;
+}
+
+.text-mine2{
+    color: $color-mine2;
+}
+
+.radius{
+    border-radius: 14px;
+}
+
+label{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.height-mine{
+    height: 50px;
+}
+
+input,textarea,select{
+    background-color:#f3f4f7;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0,0.08);
+    outline: none;
+    border: 1px solid #f3f4f7;
+    transition: 500ms all;
+    &:focus{
+        background-color: #fff;
+    }
+}
+
+//Media Query
+
+@media all and (max-width: 992px) 
+{
+    .responsive-contact{
+        margin: 0px 30px;
+        padding: 24px 0px;
+        h3,p{
+            text-align: center !important;
+            margin-top: 20px;
+        }
+        .email{
+            padding-bottom: 48px !important;
+        }
+        .col-lg-8{
+            padding: 0px;
+        }
+    }
+}
+

@@ -1,0 +1,87 @@
+h5{
+    color: rgb(70, 70, 70);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+small{
+    color: rgb(141, 141, 141);
+}
+
+
+.icon{
+    background-color:#f3f4f7;
+    border-radius: 10px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 5px;
+    cursor: pointer;
+    border: 1px solid #f3f4f7;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0,0.08);
+    color: rgb(141, 141, 141);
+    outline: none;
+}
+
+.fa-youtube{
+    transition: color 0.8s;
+    &:hover{
+        color: rgb(255, 0, 0);
+    }
+ }
+
+ .fa-instagram{
+    transition: color 0.8s;
+    &:hover{
+        color: #b30095;
+    }
+ }
+
+ .fa-twitter{
+    transition: color 0.8s;
+    &:hover{
+        color: #50ABF1;
+    }
+ }
+
+ .fa-facebook-f{
+    transition: color 0.8s;
+    &:hover{
+        color:  #1877F2;
+    }
+ }
+
+ .subscribe {
+    position: relative;
+    input{
+        background-color: #f3f4f7;
+        border: 1px solid #f3f4f7;
+        border-radius: 14px;
+        border: solid 1px #c5c5c515;
+        box-shadow: inset 0px 2px 4px rgba(0, 0, 0,0.08);
+        padding: 23px;
+        outline: none;
+        transition: 500ms all;
+        &:focus{
+            background-color: #fff;
+        }
+    }
+  
+    button {
+      position: absolute;
+      top: 13%;
+      right: 5%;
+      i {
+        color: rgb(141, 141, 141);
+      }
+    }
+  }
+
+.copyRight{
+    padding-bottom: 35px;
+    small{
+        font-size: 12px;
+    }
+}
+
