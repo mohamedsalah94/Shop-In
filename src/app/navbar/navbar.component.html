@@ -1,54 +1,55 @@
 <div class="wrapper position-fixed">
     <!-- Sidebar  -->
-    <nav id="sidebar" class="active">
+        <nav id="sidebar" class="active pt-5">
            
             <ul class="list-unstyled components">
-                <li class="active">
+                <li class="pt-4">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <i class="fas fa-tshirt"></i> Men's Fashion</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li><a href="#">Clothes</a></li>
-                        <li><a href="#">shoes</a></li>
-                        <li><a href="#">Watches</a></li>
+                        <li><a routerLink='products'>Clothes</a></li>
+                        <li><a routerLink='products'>shoes</a></li>
+                        <li><a routerLink='products'>Watches</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-female"></i> Women's Fashion</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li><a href="#">Clothes</a></li>
-                        <li><a href="#">Jewelry</a></li>
-                        <li><a href="#">shoes</a></li>
-                        <li><a href="#">Watches</a></li>
+                        <li><a routerLink='products'>Clothes</a></li>
+                        <li><a routerLink='products'>Jewelry</a></li>
+                        <li><a routerLink='products'>shoes</a></li>
+                        <li><a routerLink='products'>Watches</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><i class="fas fa-child"></i> Kid's Fashion</a>
+                    <a routerLink='products'><i class="fas fa-child"></i> Kid's Fashion</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fas fa-dumbbell"></i> Sports & Fitness</a>
+                    <a routerLink='products'><i class="fas fa-dumbbell"></i> Sports & Fitness</a>
                 </li>
                 <li>
-                  <a href="#"><i class="fas fa-shopping-bag"></i> Bags</a>
+                  <a routerLink='products'><i class="fas fa-shopping-bag"></i> Bags</a>
               </li>
               
               <li>
-                <a href="#"><i class="fas fa-project-diagram"></i> All Categories</a>
+                <a routerLink='products'><i class="fas fa-project-diagram"></i> All Categories</a>
             </li>
             <li>
-              <a href="#"><i class="fas fa-window-restore "></i> All Products</a>
+              <a routerLink='products'><i class="fas fa-window-restore "></i> All Products</a>
           </li>
           <li>
-            <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
+            <a routerLink='wishlist'><i class="fas fa-heart"></i> Wishlist</a>
         </li>
         
             </ul>
 
             <ul class="list-unstyled CTAs">
               <li>
-                <a href="#"> <i class="fas fa-user-plus"></i> Create an account</a>
-            </li>
-            <li>
-              <a href="#"> <i class="fas fa-sign-in-alt"> </i> Sign In </a>
-          </li></ul>
+                  <a routerLink='register'> <i class="fas fa-user-plus"></i> Create an account</a>
+              </li>
+              <li>
+                <a routerLink='login'> <i class="fas fa-sign-in-alt"> </i> Sign In </a>
+              </li>
+            </ul>
         </nav>
 
     <!-- Page Content  -->
@@ -56,17 +57,16 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light ">
             <div class="container-fluid">
               <div class="sidebar-header mr-5">
-                <h3 style="margin-right: 16px">SHOP IN </h3>
+                <h3 style="margin-right: 16px"><a routerLink="/home" class="text-reset text-decoration-none">SHOP IN</a></h3>
              </div>
                 <button type="button" id="sidebarCollapse" class="btn btn-info">
                     <i class="fas fa-align-left fa-lg"></i>
-                    <span></span>
                 </button>
                 <!-- <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-align-justify"></i>
                 </button> -->
 
-                <div class="input-group w-50 ml-5 pl-5 ">
+                <div class="input-group w-50 ml-4 d-none d-xl-flex">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1"><i class='fas fa-search'></i></span>
                   </div>
@@ -90,20 +90,20 @@
                           </select>
                         </li>
                         <li class="nav-item m-2">
-                            <a href="#"><i class="fas fa-heart"></i></a>
+                            <a routerLink='wishlist'><i class="fas fa-heart"></i></a>
                         </li>
                         
                         
 
                         <li class="nav-item m-2">
-                            <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                            <a routerLink='shoppingCart'><i class="fas fa-shopping-bag"></i></a>
                         </li>
                         <li class="nav-item dropdown d-flex justify-content-center align-items-center">
-                            <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-user"></i> My account</a><br>
                               <div class="dropdown-menu drop-menu " aria-labelledby="navbarDropdownMenuLink">
-                             <a href="#" class="d-inline-block py-2 pl-3"> <i class="fas fa-user-plus"></i> Create an account</a> <br>
-                             <a href="#" class="d-inline-block py-2 pl-3"> <i class="fas fa-sign-in-alt"> </i> Sign In </a>
+                             <a routerLink='register' class="d-inline-block py-2 pl-3"> <i class="fas fa-user-plus"></i> Create an account</a> <br>
+                             <a routerLink='login' class="d-inline-block py-2 pl-3"> <i class="fas fa-sign-in-alt"> </i> Sign In </a>
                               </div>
                         </li>
                     </ul>
