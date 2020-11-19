@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl,Validators } from '@angular/forms';
+
 declare var $:any;
 
 @Component({
@@ -20,7 +21,9 @@ export class ContactUsComponent implements OnInit {
   constructor() { }
 
   getMessage(sendMessage){
-    console.log(sendMessage.value)
+    if (sendMessage.valid) {
+      console.log(sendMessage.value);
+    }
   }
 
   ngOnInit(): void {

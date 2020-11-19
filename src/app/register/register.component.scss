@@ -20,7 +20,7 @@ label
 {
     font-weight: 600;
 }
-input {
+input,select {
     background-color: #f3f4f7;
     border: 1px solid #f3f4f7;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
@@ -33,14 +33,12 @@ input:focus {
     background-color: #fff;
 }
 
+select{
+    padding: 0px 10px;
+    height: 50px;
+}
 /* ====================================================/ */
 
-.custom-in-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 .login-box {
     border-radius: 14px;
 }

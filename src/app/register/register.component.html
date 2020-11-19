@@ -1,49 +1,67 @@
   
-    <div class="text-center py-2 mb-5 ">
+
+    <section class="py-5">
+      <div class="text-center pt-5 ">
         <span class="mb-4" >
       <h1>Sign Up</h1>
-      <a href="#"> Home</a> <i class="fas fa-angle-right"></i> <span style="color: #ACABB6;">Sign Up </span></span>
+      <nav
+      aria-label="breadcrumb"
+      class="d-flex justify-content-center align-items-center">
+      <ol class="breadcrumb bg-transparent m-0">
+        <li class="breadcrumb-item"><a routerLink="/home" class="text-decoration-none">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Sign In</li>
+      </ol>
+    </nav>    </span>
     </div>
-    <section>
-        <div class="container ">
-            <div class="row ">
-                <div class="col-md-6 custom-in-center">
-                    <div class="login-box bg-white mt-5  shadow">
+        <div class="container">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-md-10">
+                    <div class="login-box bg-white mt-3 py-5 px-3 shadow-lg">
                         <div class="login-title text-center  py-3 ">
                             <h4>Create New Account</h4>
                             <p  style="color: #ACABB6;">Sign up using social networks</p>
                             <div  style="font-size: 3em; ">
                                 <a href="https://www.google.com/" target="_blank"><i style="color: #E74235;" class="fab fa-google-plus"></i></a>
-                                <a href="https://www.facebook.com/" target="_blank"><i style="color: #4267B2;" class="fab fa-facebook"></i></a>
+                                <a href="https://www.facebook.com/" target="_blank"><i style="color: #4267B2;" class="mx-4 fab fa-facebook"></i></a>
                                 <a href="https://www.twitter.com/" target="_blank"><i style="color: #55AAE0;" class="fab fa-twitter"></i></a>
                             </div>
                         </div>
                         
                         <div class="login-content mt-auto p-4">
                             
-                            <form>
+                            <form [formGroup]='register' (ngSubmit)='getRegister(register)'>
                                 <div class="row pt-2 ">
                                     
                                   <div class="col">
                                     <label>First Name</label>
-                                    <input type="text" class="w-100" placeholder="e.g John ">
+                                    <input type="text" class="w-100" placeholder="e.g John" formControlName='first_name'>
+                                    <small class="text-danger ml-1"
+                                     *ngIf="register.get('first_name').touched &&
+                                      register.get('first_name').invalid">This field is required</small>
+
                                   </div>
                                   <div class="col">
                                     <label>Last Name</label>
-                                    <input type="text" class="w-100" placeholder="e.g Doe ">
+                                    <input type="text" class="w-100" placeholder="e.g Doe" formControlName='last_name'>
+                                    <small class="text-danger ml-1" 
+                                    *ngIf="register.get('last_name').touched &&
+                                     register.get('last_name').invalid">This field is required</small>
+
                                   </div>
                                 </div>
-                              </form>
-                            <form>
                                 <div class="row pt-2">
                                     
                                   <div class="col">
                                     <label>Email</label>
-                                    <input type="text" class="w-100" placeholder="e.g.John.doe@gmail.com ">
+                                    <input type="text" class="w-100" placeholder="e.g.John.doe@gmail.com " formControlName='email'>
+                                    <small class="text-danger ml-1" 
+                                    *ngIf="register.get('email').touched && 
+                                    register.get('email').invalid">Email is invalid</small>
+
                                   </div>
                                   <div class="col">
                                     <label for="Country">Country</label>
-                                      <select id="Country" class="form-control" >
+                                      <select id="Country" class="form-control" formControlName='country'>
                                         <option data-countryCode="DZ" value="213">Algeria (+213)</option>
                                         <option data-countryCode="AD" value="376">Andorra (+376)</option>
                                         <option data-countryCode="AO" value="244">Angola (+244)</option>
@@ -257,43 +275,53 @@
                                         <option data-countryCode="ZM" value="260">Zambia (+260)</option>
                                         <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>
                                       </select>
+                                      <small class="text-danger ml-1" 
+                                      *ngIf="register.get('country').touched &&
+                                       register.get('country').invalid">This field is required</small>
+
                                   </div>
                                 </div>
-                              </form>
-                            <form>
                                 <div class="row pt-2">
                                     
                                   <div class="col">
                                     <label>Password</label>
                                     <div class="password-input">
-                                        <input type="password" class="w-100 passInput pr-5" placeholder="********">
+                                        <input type="password" class="w-100 passInput pr-5" placeholder="********" formControlName='password'>
 
                                         <i class="far fa-eye-slash"></i>
                                         <i class="far fa-eye"></i>
+                                        <small class="text-danger ml-1" 
+                                        *ngIf="register.get('password').touched &&
+                                         register.get('password').invalid">Password is invalid</small>
+
                                     </div>
                                   </div>
                                   <div class="col">
                                     <label>Confirm Password</label>
                                     <div class="password-input">
-                                        <input type="password" class="w-100 passInput pr-5" placeholder="********">
+                                        <input type="password" class="w-100 passInput pr-5" placeholder="********" formControlName='confirm_password'>
 
                                         <i class="far fa-eye-slash"></i>
                                         <i class="far fa-eye"></i>
+                                        <small class="text-danger ml-1"
+                                         *ngIf="register.get('confirm_password').touched && 
+                                         register.get('confirm_password').invalid">Please enter the same password</small>
+
                                     </div>
                                   </div>
                                 </div>
+                                <div class="form-group pt-3">
+                                  <div class="text-center">
+                                      <input class="remember-me mr-1" type="checkbox">
+                                       <label>
+                                         I have read the<a routerLink='/terms' class="text-decoration-none"> Term & Conditions</a>
+                                       </label>
+                                  </div>
+                              </div>
+                              <div class="text-center">
+                                <button class="btn btn-primary btn-block login-box" [disabled]='register.invalid' type="submit" >Sign Up</button>
+                            </div>
                               </form>
-                            <div class="form-group pt-3">
-                                <div class="text-center">
-                                    <input class="remember-me" type="checkbox"> <label>I have read the<a href="#"> Term & Conditions</a></a></label>
-                                </div>
-
-                            </div>
-                            <div class="form-group">
-                            </div>
-                            <div class="text-center">
-                                <button class=" w-50" type="submit" >Sign Up</button>
-                            </div>
                         </div>
                     </div>
                 </div>
