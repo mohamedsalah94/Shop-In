@@ -69,3 +69,31 @@ $color-mine:#e9e9e9;
 #minus , #plus , .heart-icon{
     cursor: pointer;
 }
+
+
+/* star Rating Styles */
+.stars {
+	display: inline-block;
+}
+
+.stars input {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+.stars label {
+    box-sizing: border-box;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background: url("../../assets/image/product/star\ 2.png" );
+    font-size: 0;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: 19px 19px;
+}
+
+.stars label.fullStar{
+    background: url("../../assets/test/star2-1.png");
+    background-size: 19px 19px;
+}

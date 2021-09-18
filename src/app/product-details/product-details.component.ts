@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { IProducts } from '../Interfaces/Iproducts';
+import { ProductsService } from '../Services/products.service';
 declare var $:any;
 @Component({
   selector: 'app-product-details',
@@ -6,34 +9,46 @@ declare var $:any;
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
-
-  constructor() { }
+  CurrentParam:string;
+  Product:IProducts;
+  constructor(
+    private _ProductsService:ProductsService,
+    private activatedRoute:ActivatedRoute
+    ) { }
 
   ngOnInit(): void {
-
-    $('#plus').click(()=>{
-      let value = $('#productCount').text()      
-      $('#productCount').text(Number(value)+1)
-    })
-    $('#minus').click(()=>{
-      if ($('#productCount').text() > 1) {
-        let value = $('#productCount').text()      
-        $('#productCount').text(Number(value)-1)
-      }
+    this.activatedRoute.paramMap.subscribe(params => {
+        this.CurrentParam = params.get('id')
+        this.getProductDetails(Number(this.CurrentParam));
     })
 
-    $('#reviewsBtn').click(()=>{
-      $('#reviewsBtn').css('box-shadow','inset 0 0 0px transparent').html(`<div class="spinner-border text-primary" role="status">
-      <span class="sr-only">Loading...</span></div>`)})
-
-
-      $('#reviewsBtn').click(()=>{
-        let clear = setTimeout(() => {
-          $('#reviewsBtn').html("There are no more reviews.")
-        }, 500);
-      })
   }
 
+  getProductDetails(id:number){
+    this._ProductsService.getProductsById(id).subscribe(res=>{
+      this.Product = res;
+    })
+  }
+
+  increaseItem(){
+    let value = $('#productCount').text(); 
+    $('#productCount').text(Number(value)+1)
+  }
+
+  decreaseItem(){
+    if ($('#productCount').text() > 1) {
+      let value = $('#productCount').text()      
+      $('#productCount').text(Number(value)-1)
+    }
+  }
+
+  addToCart(item){
+    this._ProductsService.addToCart(item);
+  }
+
+  addToFavourite(item){
+    this._ProductsService.addToFavourite(item);
+  }
 }
 
 

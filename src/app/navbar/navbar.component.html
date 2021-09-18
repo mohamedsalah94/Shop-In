@@ -1,114 +1,149 @@
 <div class="wrapper position-fixed">
-    <!-- Sidebar  -->
-        <nav id="sidebar" class="active pt-5">
-           
-            <ul class="list-unstyled components">
-                <li class="pt-4">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <i class="fas fa-tshirt"></i> Men's Fashion</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li><a routerLink='products'>Clothes</a></li>
-                        <li><a routerLink='products'>shoes</a></li>
-                        <li><a routerLink='products'>Watches</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-female"></i> Women's Fashion</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li><a routerLink='products'>Clothes</a></li>
-                        <li><a routerLink='products'>Jewelry</a></li>
-                        <li><a routerLink='products'>shoes</a></li>
-                        <li><a routerLink='products'>Watches</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a routerLink='products'><i class="fas fa-child"></i> Kid's Fashion</a>
-                </li>
-                <li>
-                    <a routerLink='products'><i class="fas fa-dumbbell"></i> Sports & Fitness</a>
-                </li>
-                <li>
-                  <a routerLink='products'><i class="fas fa-shopping-bag"></i> Bags</a>
-              </li>
-              
-              <li>
-                <a routerLink='products'><i class="fas fa-project-diagram"></i> All Categories</a>
+  <!-- Sidebar  -->
+  <aside id="sidebar" class="active pt-5">
+    <ul class="list-unstyled components">
+      <li class="pt-4">
+        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <i
+            class="fas fa-tshirt"></i> Men's Fashion</a>
+        <ul class="collapse list-unstyled" id="homeSubmenu" (click)="sidebarCollapse()">
+          <li><a routerLink='/products/men-clothes'>Clothes</a></li>
+          <li><a routerLink='/products/men-shoes'>Shoes</a></li>
+          <li><a routerLink='/products/men-watches'>Watches</a></li>
+          <li><a routerLink='/products/men-jewelry'>Jewelry</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i
+            class="fas fa-female"></i> Women's Fashion</a>
+        <ul class="collapse list-unstyled" id="pageSubmenu" (click)="sidebarCollapse()">
+          <li><a routerLink='/products/women-clothes'>Clothes</a></li>
+          <li><a routerLink='/products/women-jewelry'>Jewelry</a></li>
+          <li><a routerLink='/products/women-shoes'>Shoes</a></li>
+          <li><a routerLink='/products/women-watches'>Watches</a></li>
+        </ul>
+      </li>
+      <li>
+        <a routerLink='/products/kids-fashion' (click)="sidebarCollapse()"><i class="fas fa-child"></i> Kid's
+          Fashion</a>
+      </li>
+      <li>
+        <a routerLink='/products/sports-fitness' (click)="sidebarCollapse()"><i class="fas fa-dumbbell"></i> Sports &
+          Fitness</a>
+      </li>
+      <li>
+        <a routerLink='/products/bags' (click)="sidebarCollapse()"><i class="fas fa-shopping-bag"></i> Bags</a>
+      </li>
+
+      <li>
+        <a routerLink='/all-categories' (click)="sidebarCollapse()"><i class="fas fa-project-diagram"></i> All
+          Categories</a>
+      </li>
+      <li>
+        <a routerLink='/shoppingCart' (click)="sidebarCollapse()"><i class="fas fa-window-restore "></i> Shopping
+          Cart</a>
+      </li>
+      <li>
+        <a routerLink='/wishlist' (click)="sidebarCollapse()"><i class="fas fa-heart"></i> Wishlist</a>
+      </li>
+      <li>
+        <a routerLink='/profile' (click)="sidebarCollapse()" *ngIf="isLogin" class="d-block py-2 pl-3"> <i class="fas fa-user-plus"></i> Profile
+        </a>
+      </li>
+      <li>
+        <a routerLink='/dashboard' (click)="sidebarCollapse()" *ngIf="isLogin && (isAdmin || isSuperAdmin)" class="d-block py-2 pl-3"> <i
+            class="fas fa-tachometer-alt"></i> dashboard </a>
+      </li>
+    </ul>
+
+    <ul class="list-unstyled CTAs">
+      <li *ngIf="!isLogin" (click)="sidebarCollapse()">
+        <a routerLink='/register'> <i class="fas fa-user-plus"></i> Create an account</a>
+      </li>
+      <li *ngIf="!isLogin">
+        <a routerLink='/login' (click)="sidebarCollapse()"> <i class="fas fa-sign-in-alt"> </i> Sign In </a>
+      </li>
+      <li *ngIf="isLogin" class="pointer">
+        <a (click)="onLogOut(); sidebarCollapse();"> <i class="fas fa-sign-in-alt"> </i> Sign Out </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Page Content  -->
+  <div id="content">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+      <div class="container-fluid">
+        <div class="sidebar-header mr-5">
+          <h3 style="margin-right: 16px"><a routerLink="/home" class="text-reset text-decoration-none">SHOP IN</a></h3>
+        </div>
+        <button type="button" id="sidebarCollapse" class="btn btn-info" (click)="sidebarCollapse()">
+          <i class="fas fa-align-left fa-lg"></i>
+        </button>
+
+        <div class="input-group ml-4 d-none d-xl-flex w-50">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class='fas fa-search'></i></span>
+          </div>
+          <input type="text" class="form-control" placeholder="what you're looking for " aria-label="Username"
+            aria-describedby="basic-addon1">
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="nav navbar-nav ml-auto d-flex justify-content-center align-items-center">
+            <li class="nav-item dropdown  mr-2">
+              <select class="form-control form-control-sm ">
+                <option>EN</option>
+                <option>AR</option>
+              </select>
             </li>
-            <li>
-              <a routerLink='products'><i class="fas fa-window-restore "></i> All Products</a>
-          </li>
-          <li>
-            <a routerLink='wishlist'><i class="fas fa-heart"></i> Wishlist</a>
-        </li>
-        
-            </ul>
+            <li class="nav-item dropdown  mr-2">
+              <select class="form-control form-control-sm">
+                <option>USD</option>
+                <option>EUR</option>
+                <option>EGP</option>
+                <option>SAR</option>
+              </select>
+            </li>
+            <li class="nav-item mr-3">
+              <a routerLink='wishlist'>
+                <i class="fas fa-heart position-relative">
+                  <span class="bg-danger rounded-circle p-2 currentItemsLength" style="right: -7px;"
+                    *ngIf="FavouriteProducts != null ">
+                    {{FavouriteProducts.length}}
+                  </span>
+                </i>
+              </a>
+            </li>
 
-            <ul class="list-unstyled CTAs">
-              <li>
-                  <a routerLink='register'> <i class="fas fa-user-plus"></i> Create an account</a>
-              </li>
-              <li>
-                <a routerLink='login'> <i class="fas fa-sign-in-alt"> </i> Sign In </a>
-              </li>
-            </ul>
-        </nav>
-
-    <!-- Page Content  -->
-    <div id="content">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-            <div class="container-fluid">
-              <div class="sidebar-header mr-5">
-                <h3 style="margin-right: 16px"><a routerLink="/home" class="text-reset text-decoration-none">SHOP IN</a></h3>
-             </div>
-                <button type="button" id="sidebarCollapse" class="btn btn-info">
-                    <i class="fas fa-align-left fa-lg"></i>
-                </button>
-                <!-- <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-align-justify"></i>
-                </button> -->
-
-                <div class="input-group w-50 ml-4 d-none d-xl-flex">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1"><i class='fas fa-search'></i></span>
-                  </div>
-                <input type="text" class="form-control" placeholder="what you're looking for " aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="nav navbar-nav ml-auto d-flex justify-content-center align-items-center">
-                      <li class="nav-item dropdown  mr-2">                                  
-                        <select class="form-control form-control-sm ">
-                          <option>EN</option>
-                          <option>AR</option>
-                        </select>
-                      </li>
-                        <li class="nav-item dropdown  mr-2">
-                          <select class="form-control form-control-sm">
-                            <option>USD</option>
-                            <option>EUR</option>
-                            <option>EGP</option>
-                            <option>SAR</option>
-                          </select>
-                        </li>
-                        <li class="nav-item m-2">
-                            <a routerLink='wishlist'><i class="fas fa-heart"></i></a>
-                        </li>
-                        
-                        
-
-                        <li class="nav-item m-2">
-                            <a routerLink='shoppingCart'><i class="fas fa-shopping-bag"></i></a>
-                        </li>
-                        <li class="nav-item dropdown d-flex justify-content-center align-items-center">
-                            <a class="nav-link" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-user"></i> My account</a><br>
-                              <div class="dropdown-menu drop-menu " aria-labelledby="navbarDropdownMenuLink">
-                             <a routerLink='register' class="d-inline-block py-2 pl-3"> <i class="fas fa-user-plus"></i> Create an account</a> <br>
-                             <a routerLink='login' class="d-inline-block py-2 pl-3"> <i class="fas fa-sign-in-alt"> </i> Sign In </a>
-                              </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
+            <li class="nav-item mr-3">
+              <a routerLink='shoppingCart'>
+                <i class="fas fa-shopping-bag position-relative">
+                  <span class="bg-danger rounded-circle p-2 currentItemsLength" *ngIf="Products != null ">
+                    {{Products.length}}
+                  </span>
+                </i>
+              </a>
+            </li>
+            <li class="nav-item dropdown d-flex justify-content-center align-items-center">
+              <a class="nav-link" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <i class="fas fa-user"></i> {{userName?userName:"My account"}}
+              </a>
+              <div class="dropdown-menu drop-menu " aria-labelledby="navbarDropdownMenuLink">
+                <a routerLink='/register' *ngIf="!isLogin" class="d-block py-2 pl-3"> <i class="fas fa-user-plus"></i>
+                  Create an account</a>
+                <a routerLink='/profile' *ngIf="isLogin" class="d-block py-2 pl-3"> <i class="fas fa-user-plus"></i>
+                  Profile </a>
+                <a routerLink='/dashboard' *ngIf="isLogin && (isAdmin || isSuperAdmin)" class="d-block py-2 pl-3"> <i
+                    class="fas fa-tachometer-alt"></i> dashboard </a>
+                <a (click)="onLogOut()" *ngIf="isLogin" class="d-block py-2 pl-3 pointer"> <i
+                    class="fas fa-sign-in-alt"> </i> Sign Out </a>
+                <a routerLink='/login' *ngIf="!isLogin" class="d-block py-2 pl-3"> <i class="fas fa-sign-in-alt"> </i>
+                  Sign In </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
 </div>

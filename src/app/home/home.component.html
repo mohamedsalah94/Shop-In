@@ -1,5 +1,5 @@
 <app-slider></app-slider>
-<!-- Start Categories Cards -->
+
 <section class="py-5">
     <div class="container">
         <div class="categories-cards">
@@ -10,7 +10,7 @@
                         <div class="card-content pr-3">
                             <h3 class="my-3">Men's Fashion</h3>
                             <p class="my-3">Visit our shop to see amazing products</p>
-                            <button class="btn mb-2"><a routerLink="/products" class="text-reset text-decoration-none">Shop Now</a></button>
+                            <button class="btn mb-2"><a routerLink="/products/men-clothes" class="text-reset text-decoration-none">Shop Now</a></button>
                         </div>
                         <div class="card-image">
                             <img src="../../assets/images/suit.png" class="img-fluid" alt="">
@@ -25,7 +25,7 @@
                         <div class="card-content">
                             <h3 class="my-3">Women's Fashion</h3>
                             <p class="my-3">Visit our shop to see amazing products</p>
-                            <button class="btn mb-2"><a routerLink="/products" class="text-reset text-decoration-none">Shop Now</a></button>
+                            <button class="btn mb-2"><a routerLink="/products/women-clothes" class="text-reset text-decoration-none">Shop Now</a></button>
                         </div>
                         <div class="card-image">
                             <img src="../../assets/images/woman-clothes.png" class="img-fluid" alt="">
@@ -40,7 +40,7 @@
                         <div class="card-content">
                             <h3 class="my-3">Kid's Fashion</h3>
                             <p class="my-3">Visit our shop to see amazing products</p>
-                            <button class="btn mb-2"> <a routerLink="/products" class="text-reset text-decoration-none">Shop Now</a> </button>
+                            <button class="btn mb-2"> <a routerLink="/products/kids-fashion" class="text-reset text-decoration-none">Shop Now</a> </button>
                         </div>
                         <div class="card-image">
                             <img src="../../assets/images/baby-clothes.png" class="img-fluid" alt="">
@@ -53,9 +53,62 @@
         </div>
     </div>
 </section>
-<!-- end Categories Cards -->
 
-<!-- start Banner On Sale -->
+<section id="newProducts">
+    <div class="container">
+        <div class="header text-center py-4">
+            <h2 class="text-dark">New Arrivals</h2>
+            <p class="text-muted">Maecenas vel odio faucibus, ultrices mauris quis, sollicitudin magna</p>
+        </div>
+        <div class="row m-0">
+            <div class="col-lg-3 col-md-6 my-4"  *ngFor="let NewProduct of NewProducts;let i = index">
+                <div class="item shadow" style="height: 250px;">
+                    <div class="d-flex justify-content-between">
+                        <div class="new-items shadow">
+                            <small class="text-white">NEW</small>
+                        </div>
+                        <div class="wish-list shadow pointer" (click)="addToFavourite(NewProduct);">
+                            <div class="icon">
+                                <i class="fas fa-heart text-white"></i>
+                            </div>
+                            <div class="tooltip-wish-list bg-dark">
+                                <small>Add to favourite</small>
+                            </div>
+                        </div>
+                        <div class="shopping-basket pointer shadow" (click)="addToCart(NewProduct);">
+                            <div class="icon">
+                                <i class="fas fa-shopping-basket text-white"></i>
+                            </div>
+                            <div class="tooltip-basket bg-dark">
+                                <small>Add to cart</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="new-items shadow bg-danger" *ngIf="NewProduct?.onSale == true">
+                        <small class="text-white">SALE</small>
+                    </div>
+                    <img [src]="NewProduct?.imageUrl" [alt]="NewProduct?.describtion" class="img-fluid m-auto d-flex h-75 pointer" routerLink="/details/{{NewProduct.id}}">
+                </div>
+                <div class="describtion container" routerLink="/details/{{NewProduct.id}}">
+                    <h3 class="text-dark h6 mt-3 pointer font-weight-bold">{{NewProduct?.name}}</h3>
+                    <div class="price d-flex justify-content-between">
+                        <div class="text-muted pointer font-weight-bold" >
+                            <span>${{NewProduct?.price}}</span>
+                        </div>
+                        <div class="stars d-flex mt-1">
+                            <label  [class.fullStar]="(NewProduct.rateSum / NewProduct.rateCount).toFixed() >= '1' && (NewProduct.rateSum / NewProduct.rateCount).toFixed() != 'NaN' " for="star1" aria-label="Banana">1 star</label>
+                            <label  [class.fullStar]="(NewProduct.rateSum / NewProduct.rateCount).toFixed() >= '2' && (NewProduct.rateSum / NewProduct.rateCount).toFixed() != 'NaN' " for="star2">2 stars</label>
+                            <label  [class.fullStar]="(NewProduct.rateSum / NewProduct.rateCount).toFixed() >= '3' && (NewProduct.rateSum / NewProduct.rateCount).toFixed() != 'NaN' " for="star3">3 stars</label>
+                            <label  [class.fullStar]="(NewProduct.rateSum / NewProduct.rateCount).toFixed() >= '4' && (NewProduct.rateSum / NewProduct.rateCount).toFixed() != 'NaN' " for="star4">4 stars</label>
+                            <label  [class.fullStar]="(NewProduct.rateSum / NewProduct.rateCount).toFixed() == '5' && (NewProduct.rateSum / NewProduct.rateCount).toFixed() != 'NaN' " for="star5">5 stars</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="py-5">
     <div class="container">
         <div class="row ">
@@ -64,26 +117,18 @@
                     <div class="row d-flex justify-content-center align-items-center ">
                         <div class="col-md-6">
                             <div class="banner-image text-center">
-
-                                <img src="../../assets/images/backpack_PNG6353.png" class="img-fluid" alt="">
+                                <img src="../../assets/images/backpack_PNG6353.png" class="img-fluid" alt="bag">
+                                <img src="../../assets/test/white-shape.png" class="img-fluid shape" alt="shape">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="banner-content text-center">
-
-
                                 <div class="offer mt-3">
                                     <h5>50% OFF</h5>
                                 </div>
-
                                 <h3>Oil Green Backpack</h3>
-
                                 <span> <del> 1000 L.E </del></span>
                                 <span>500 L.E</span>
-
-
-
-
                             </div>
                         </div>
                     </div>
@@ -92,5 +137,80 @@
         </div>
     </div>
 </section>
-<!-- end Product On Sale -->
 
+<section id="OnSale">
+    <div class="container">
+        <div class="header text-center py-4">
+            <h2 class="text-dark">Items on sale</h2>
+            <p class="text-muted">Maecenas vel odio faucibus, ultrices mauris quis, sollicitudin magna</p>
+        </div>
+        <div class="row m-0">
+            <div class="col-lg-3 col-md-6 my-4"  *ngFor="let Product of ProductsOnSale">
+                <div class="item shadow" style="height: 250px;">
+                    <div class="d-flex justify-content-between">
+                        <div class="new-items shadow bg-danger">
+                            <small class="text-white">{{Product?.discount}}%</small>
+                        </div>
+                        <div class="wish-list shadow pointer" (click)="addToFavourite(Product);">
+                            <div class="icon">
+                                <i class="fas fa-heart text-white"></i>
+                            </div>
+                            <div class="tooltip-wish-list bg-dark">
+                                <small>Add to favourite</small>
+                            </div>
+                        </div>
+                        <div class="shopping-basket pointer shadow" (click)="addToCart(Product);">
+                            <div class="icon">
+                                <i class="fas fa-shopping-basket text-white"></i>
+                            </div>
+                            <div class="tooltip-basket bg-dark">
+                                <small>Add to cart</small>
+                            </div>
+                        </div>
+                    </div>
+                    <img [src]="Product?.imageUrl" [alt]="Product?.describtion" class="img-fluid m-auto d-flex h-75 pointer" routerLink="/details/{{Product.id}}">
+                </div>
+                <div class="describtion container" routerLink="/details/{{Product.id}}">
+                    <h3 class="text-dark h6 mt-3 pointer font-weight-bold">{{Product?.name}}</h3>
+                    <div class="price d-flex justify-content-between">
+                        <div class="text-muted pointer font-weight-bold" >
+                            <span class="mr-2"><s>${{Product?.price}}</s></span>
+                            <span>${{(Product?.price - (Product?.price*(Product?.discount/100))).toFixed(2)}}</span>
+                        </div>
+                        <div class="stars d-flex mt-1">
+                            <label  [class.fullStar]="(Product.rateSum / Product.rateCount).toFixed() >= '1' && (Product.rateSum / Product.rateCount).toFixed() != 'NaN'"  aria-label="Banana">1 star</label>
+                            <label  [class.fullStar]="(Product.rateSum / Product.rateCount).toFixed() >= '2' && (Product.rateSum / Product.rateCount).toFixed() != 'NaN'" >2 stars</label>
+                            <label  [class.fullStar]="(Product.rateSum / Product.rateCount).toFixed() >= '3' && (Product.rateSum / Product.rateCount).toFixed() != 'NaN'" >3 stars</label>
+                            <label  [class.fullStar]="(Product.rateSum / Product.rateCount).toFixed() >= '4' && (Product.rateSum / Product.rateCount).toFixed() != 'NaN'" >4 stars</label>
+                            <label  [class.fullStar]="(Product.rateSum / Product.rateCount).toFixed() == '5' && (Product.rateSum / Product.rateCount).toFixed() != 'NaN'" >5 stars</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-12 mx-auto">
+                <div class="banner-box banner-box2">
+                    <div class="row d-flex justify-content-center align-items-center ">
+                        <div class="col-md-6">
+                            <div class="banner-image text-center">
+                                <img src="../../assets/test/sign-up-now.png" class="img-fluid" alt="Contact us" style="height: 100%;">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="banner-content text-center">
+                                <h5 class="text-dark" style="line-height: 40px;">If you need any help, <br> please feel free to contact us immediately</h5>
+                                <button class="btn offer mt-3 bg-dark">Contact us</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

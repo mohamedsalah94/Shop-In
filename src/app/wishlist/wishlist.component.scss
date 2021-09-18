@@ -9,12 +9,19 @@ $color-mine2:#7571f9;
 
 }
 
-.shoppingBtn{
-    border: 1px solid transparent !important;
-    border-top: 1px solid rgba(212, 212, 212, 0.767) !important;
-    &:hover{
-        border-top-left-radius: 0px !important;
-        border-top-right-radius: 0px !important;
-        color: white !important;
+#minus , #plus {
+    cursor: pointer;
+}
+.count{
+    width: fit-content;
+    padding: 10px 20px;
+    box-shadow: inset 1px 1px 8px rgb(219, 219, 219);
+    span{
+        margin-top: -5px;
     }
+}
+
+.deleteBtn{
+    box-shadow: inset 1px 1px 8px rgb(219, 219, 219);
+    border-radius: 25%;
 }

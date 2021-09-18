@@ -117,7 +117,6 @@ a[data-toggle="collapse"] {
     min-width: 13rem !important;
     padding: .9rem 0 !important;
     top: 138%;
-   
 }
 
 .dropdown-toggle::after {
@@ -163,7 +162,6 @@ a.article:hover {
 
 #content {
     width: 100%;
-    /* padding: 20px; */
     min-height: 100vh;
     transition: all 0.3s;
 }
@@ -172,14 +170,33 @@ a.article:hover {
     MEDIAQUERIES
 ----------------------------------------------------- */
 
-@media (max-width: 768px) {
-    #sidebar {
-        margin-left: -250px;
+// @media (max-width: 768px) {
+//     #sidebar {
+//         margin-left: -250px;
+//     }
+//     #sidebar.active {
+//         margin-left: 0;
+//     }
+//     #sidebarCollapse span {
+//         display: none;
+//     }
+// }
+
+@media (max-width: 1280px) {
+    .input-group{
+        width: 45% !important;
     }
-    #sidebar.active {
-        margin-left: 0;
-    }
-    #sidebarCollapse span {
-        display: none;
-    }
+}
+
+.currentItemsLength{
+    color: #fff;
+    width: 12px;
+    height: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: -10px;
+    top: 10px;
+    font-size: 12px;
 }

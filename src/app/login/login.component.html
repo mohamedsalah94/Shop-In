@@ -1,66 +1,73 @@
-  
-
-      <section class="py-5">
-        <div class="text-center pt-5">
-            <h1>Sign In</h1>
-             <nav
-            aria-label="breadcrumb"
-            class="d-flex justify-content-center align-items-center">
+<section class="py-5">
+    <div class="text-center pt-5">
+        <h1>Sign In</h1>
+        <nav aria-label="breadcrumb" class="d-flex justify-content-center align-items-center">
             <ol class="breadcrumb bg-transparent m-0">
-              <li class="breadcrumb-item"><a routerLink="/home" class="text-decoration-none">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Sign In</li>
+                <li class="breadcrumb-item"><a routerLink="/home" class="text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Sign In</li>
             </ol>
-          </nav>
-          </div>
-          <div class="container">
-              <div class="row d-flex justify-content-center align-items-center">
-                  <div class="col-md-6 py-5">
-                      <div class="login-box bg-white shadow-lg py-5">
-                          <div class="login-title text-center py-4">
-                              <h4>Sign In to Your Account</h4>
-                              <p  style="color: #ACABB6;">Sign In using social networks</p>
-                              <div  style="font-size: 3em;">
-                                  <a href="https://www.google.com/" target="_blank"><i    style="color: #E74235;" class="fab fa-google-plus"></i></a>
-                                  <a href="https://www.facebook.com/" target="_blank"><i  style="color: #4267B2;" class="mx-4 fab fa-facebook"></i></a>
-                                  <a href="https://www.twitter.com/" target="_blank"><i   style="color: #55AAE0;" class="fab fa-twitter"></i></a>
-                              </div>
-                          </div>
-                          
-                          <div class="login-content p-4">
-                              <form [formGroup]='Login' (ngSubmit)='getLogin(Login)'>
-                                  <div class="form-group">
-                                      <label>Email</label>
-                                      <input type="text" class="w-100" placeholder="e.g.John.doe@gmail.com" formControlName='email'>
-                                      <small class="text-danger ml-1" *ngIf="Login.get('email').touched && Login.get('email').invalid">Email is invalid</small>
-                                  </div>
-  
-                                  <div class="form-group">
-                                      <label>Password</label>
-                                      <div class="password-input">
-                                          <input id="pw" type="password" class="w-100 passInput pr-5 " placeholder="********"  formControlName='password'>
-                                        <div id="showPass">
-                                            <i class="far fa-eye-slash"></i>
-                                            <i class="far fa-eye"></i>
-                                        </div>
-                                      </div>
-                                      <small class="text-danger ml-1" *ngIf="Login.get('password').touched && Login.get('password').invalid">Password is invalid</small>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-md-6 py-5">
+                <div class="login-box bg-white shadow-lg py-5">
+                    <div class="login-title text-center py-4">
+                        <h4>Sign In to Your Account</h4>
+                        <p style="color: #ACABB6;">Sign In using social networks</p>
+                        <div style="font-size: 3em;">
+                            <a href="https://www.google.com/" target="_blank"><i style="color: #E74235;"
+                                    class="fab fa-google-plus"></i></a>
+                            <a href="https://www.facebook.com/" target="_blank"><i style="color: #4267B2;"
+                                    class="mx-4 fab fa-facebook"></i></a>
+                            <a href="https://www.twitter.com/" target="_blank"><i style="color: #55AAE0;"
+                                    class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
 
-                                  </div>
-  
-                                  <div class="form-group d-flex justify-content-between">
-                                      <div>
-                                          <a class="forget-pass" href="#">Forget your password?</a>
-                                      </div>
-                                      <a class="forget-pass" routerLink="/register">Create an Account</a>
-  
-                                  </div>
-                                  <div class="text-center pt-4">
-                                      <button class="btn btn-block btn-primary login-box" type="submit"  [disabled]='Login.invalid'>Sign In</button>
-                                  </div>
-                              </form>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </section>
+                    <div class="login-content p-4">
+                        <form [formGroup]='loginForm' (ngSubmit)='onSubmit(loginForm)'>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="text" class="w-100" placeholder="e.g.John.doe@gmail.com"
+                                    formControlName='email'>
+                                <small class="text-danger ml-1"
+                                    *ngIf="loginForm.get('email').touched && loginForm.get('email').invalid">Email is
+                                    invalid</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Password</label>
+                                <div class="password-input">
+                                    <input id="pw" type="password" class="w-100 passInput pr-5 " placeholder="********"
+                                        formControlName='password'>
+                                    <div id="showPass" (click)="togglePassword();">
+                                        <i class="far fa-eye-slash"></i>
+                                        <i class="far fa-eye"></i>
+                                    </div>
+                                </div>
+                                <small class="text-danger ml-1"
+                                    *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid">Password is
+                                    invalid</small>
+
+                            </div>
+
+                            <div class="form-group d-flex justify-content-between">
+                                <div>
+                                    <a class="forget-pass" href="#">Forget your password?</a>
+                                </div>
+                                <a class="forget-pass" routerLink="/register">Create an Account</a>
+
+                            </div>
+                            <div class="text-center pt-4">
+                                <button class="btn btn-block btn-primary login-box" type="submit" id="signIn"
+                                    [disabled]='loginForm.invalid'>Sign In</button>
+                                    <small class="text-danger" *ngIf="errorMessage">{{errorMessage}}</small>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

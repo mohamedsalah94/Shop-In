@@ -1,0 +1,119 @@
+<header id="section-home" class="pt-5 mt-5">
+    <div class="container p-0">
+        <div class="content d-flex justify-content-between align-items-center">
+            <h1 class="page-title text-white">Profile</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a routerLink="/home" class="text-reset">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Profile</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</header>
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-5 mx-auto my-3">
+                <div class="text-center d-flex flex-column">
+                    <img [src]="userData?.profileImageUrl?userData?.profileImageUrl:'http://ssl.gstatic.com/accounts/ui/avatar_2x.png' " class="avatar img-circle img-thumbnail"
+                        alt="avatar">
+                </div>
+            </div>
+            <div class="col-lg-8 ml-2 my-5">
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-between">
+                        <div class="profile-head">
+                            <h5>
+                                {{userData?.firstName}} {{userData?.lastName}}
+                            </h5>
+                            <h6>
+                                <small>Customer</small>
+                            </h6>
+                        </div>
+                        <div class="">
+                            <button class="btn btn-sm rounded-pill mt-3 profile-edit-btn" routerLink="/edit-profile">Edit Profile</button>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-4">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab"
+                                href="#home" role="tab" aria-controls="home" aria-selected="true">Basic info</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" 
+                                href="#profile" role="tab" aria-controls="profile" aria-selected="false">Sub info</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content profile-tab m-4" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row">
+                                            <div class="col-md-6">
+                                                <label>User Name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{userData?.userName}}</p>
+                                            </div>
+                                </div>
+                                <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{userData?.email}}</p>
+                                            </div>
+                                </div>
+                                <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Gender</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p *ngIf="userData?.gender">{{userData?.gender}}</p>
+                                                <p *ngIf="!userData?.gender" class="text-muted"><small>Empty</small></p>
+                                            </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>First Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{userData?.firstName}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Last Name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{userData?.lastName}}</p>
+                                            </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Country</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p *ngIf="userData?.country">{{userData?.country}}</p>
+                                        <p *ngIf="!userData?.country" class="text-muted"><small>Empty</small></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Mobile Number</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p *ngIf="userData?.phoneNumber">{{userData?.phoneNumber}}</p>
+                                        <p *ngIf="!userData?.phoneNumber" class="text-muted"><small>Empty</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,124 +1,157 @@
 <section class="bg-mine overflow-auto pt-5">
     <div class="container">
-    <div class="bg-light shadow-lg my-5 radius text-center pt-0 px-4 pb-4">
-        <h2 class="py-3 m-0">Product Overview</h2>
-        <hr class="m-0">
-        <div class="row">
-            <div class="col-md-6 mt-5">
-                <img src="../../assets/images/good_1590710609908_00.png" alt="jacket" class="img-fluid jacket">
-            </div>
-            <div class="col-md-6 mt-5">
-                <div class="text-left">
-                    <small>Men's Fashion</small>
+        <div class="bg-light shadow-lg my-5 radius text-center pt-0 px-4 pb-4">
+            <h2 class="py-3 m-0">Product Overview</h2>
+            <hr class="m-0">
+            <div class="row" *ngFor="let item of Product">
+                <div class="col-lg-6 mt-5">
+                    <img [src]="item?.imageUrl" [alt]="item?.name" class="img-fluid jacket">
                 </div>
-                <h3 class="h2 text-left">Quartz Watch With Black Leather Strap & Silver Bezel</h3>
-                <div class="rate d-flex ">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-                <div class="text-left py-3">
-                    <strong class="h3">
-                        $309.00
-                    </strong>
-                </div>
-
-                <p class="text-left">
-                    <small>
-                        Stainless steel case with a black leather strap. Fixed black PVD bezel showing tachymeter markings. 
-                        Silver and black dial with luminous hands and index hour markers. Arabic numerals mark the 3, 9 and ...
-                    </small>
-                </p>
-                <div class="text-left py-2">
-                    <strong>
-                        SIZES
-                    </strong>
-                    <div class="d-flex">
-                        <div class="form-group mr-2">
-                            <label>Small</label>
-                            <input type="radio" class=" mx-2" name="size">
+                <div class="col-lg-6 mt-5">
+                    <div class="d-flex justify-content-between">
+                        <small class="text-muted">{{item?.category}}</small>
+                        <small class="text-muted">{{item?.date|date}}</small>
+                    </div>
+                    <h3 class="h2 text-left">{{item?.name}}</h3>
+                    <div class="mb-4 d-flex">
+                        <div class="text-left mx-1" *ngIf="item?.newItem == true">
+                            <small class="bg-primary rounded-pill px-3 text-white py-1">
+                                New
+                            </small>
                         </div>
-                        <div class="form-group mx-2">
-                            <label>medium</label>
-                            <input type="radio" class=" mx-2" name="size">
-                        </div>
-                        <div class="form-group mx-2">
-                            <label>Large</label>
-                            <input type="radio" class=" mx-2" name="size">
-                        </div>
-                        <div class="form-group mx-2">
-                            <label>Xlarge</label>
-                            <input type="radio" class=" mx-2" name="size">
+                        <div class="text-left mx-1" *ngIf="item?.outOfStock == true">
+                            <small class="bg-danger rounded-pill px-3 text-white py-1">
+                                Out Of Stock
+                            </small>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-2">
-                            <div class="count d-flex bg-mine radius">
-                                <i class="fas fa-minus" id="minus"></i>
-                                <span class="mx-3" id="productCount">1</span>
-                                <i class="fas fa-plus" id="plus"></i>
+                    <div class="rate ">
+                        <div class="stars d-flex mt-1">
+                            <label  [class.fullStar]="(item.rateSum / item.rateCount).toFixed() >= '1' && (item.rateSum / item.rateCount).toFixed() != 'NaN'"  aria-label="Banana">1 star</label>
+                            <label  [class.fullStar]="(item.rateSum / item.rateCount).toFixed() >= '2' && (item.rateSum / item.rateCount).toFixed() != 'NaN'" >2 stars</label>
+                            <label  [class.fullStar]="(item.rateSum / item.rateCount).toFixed() >= '3' && (item.rateSum / item.rateCount).toFixed() != 'NaN'" >3 stars</label>
+                            <label  [class.fullStar]="(item.rateSum / item.rateCount).toFixed() >= '4' && (item.rateSum / item.rateCount).toFixed() != 'NaN'" >4 stars</label>
+                            <label  [class.fullStar]="(item.rateSum / item.rateCount).toFixed() == '5' && (item.rateSum / item.rateCount).toFixed() != 'NaN'" >5 stars</label>
+                        </div>
+                    </div>
+                    <div class="text-left py-2">
+                        <small class="text-danger" *ngIf="item.onSale == true">
+                            Discount {{item?.discount}}%
+                        </small>
+                        <br *ngIf="item.onSale == true">
+                        <strong class="h3" *ngIf="item.onSale == false">
+                            ${{item?.price}}
+                        </strong>
+                        <strong class="h3" *ngIf="item.onSale == true">
+                            <s>${{item?.price}}</s> - 
+                            <span>${{(item?.price - (item?.price*(item?.discount/100))).toFixed(2)}}</span>
+                        </strong>
+                    </div>
+
+                    <p class="text-left">
+                        <small>
+                            {{item?.describtion}}
+                        </small>
+                    </p>
+                    <div class="text-left py-2">
+                        <strong>
+                            SIZES
+                        </strong>
+                        <div class="d-flex">
+                            <div class="form-group mr-2">
+                                <label>Small</label>
+                                <input type="radio" class=" mx-2" name="size" value="small">
+                            </div>
+                            <div class="form-group mx-2">
+                                <label>medium</label>
+                                <input type="radio" class=" mx-2" name="size" value="medium">
+                            </div>
+                            <div class="form-group mx-2">
+                                <label>Large</label>
+                                <input type="radio" class=" mx-2" name="size" value="large">
+                            </div>
+                            <div class="form-group mx-2">
+                                <label>Xlarge</label>
+                                <input type="radio" class=" mx-2" name="size" value="xlarge">
                             </div>
                         </div>
-                        <div class="col-1 offset-2 mr-4">
-                            <div class="d-flex bg-mine radius justify-content-center align-items-center heart-icon" routerLink='/wishlist'>
-                                <i class="fas fa-heart"></i>
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="count d-flex bg-mine radius">
+                                    <i class="fas fa-minus" id="minus" (click)="decreaseItem();"></i>
+                                    <span class="mx-3" id="productCount">1</span>
+                                    <i class="fas fa-plus" id="plus" (click)="increaseItem();"></i>
+                                </div>
+                            </div>
+                            <div class="col-1 offset-2 mr-4">
+                                <div class="d-flex bg-mine radius justify-content-center align-items-center heart-icon" (click)="addToFavourite(item)">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn radius btn-block btn-primary font-weight-bold" [disabled]="item?.outOfStock == true"
+                                    (click)="addToCart(item)">
+                                    <i class="fas fa-shopping-cart mr-1"></i>
+                                    ADD TO CART
+                                </button>
                             </div>
                         </div>
-                        <div class="col-6">
-                            <button class="btn radius btn-block btn-primary font-weight-bold" routerLink='/shoppingCart'>
-                                <i class="fas fa-shopping-cart mr-1"></i>
-                                ADD TO CART
-                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container  mb-5 radius shadow-lg">
+            <div class="row">
+                <div class="col-12 p-0">
+                    <div class="list-group text-center font-weight-bold" id="list-tab" role="tablist">
+                        <a class="list-group-item list-group-item-action active radius radius-bottom-0"
+                            id="list-home-list" data-toggle="list" href="#list-home" role="tab"
+                            aria-controls="home">Descreption</a>
+                        <a class="list-group-item list-group-item-action radius-bottom-0" id="list-profile-list"
+                            data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Reviews</a>
+                    </div>
+                </div>
+                <div class="col-12 bg-light radius radius-top-0">
+                    <div class="tab-content" id="nav-tabContent" *ngFor="let item of Product">
+                        <div class="tab-pane fade show active py-5" id="list-home" role="tabpanel"
+                            aria-labelledby="list-home-list">
+                            {{item?.describtion}}
+                        </div>
+                        <div class="tab-pane fade" id="list-profile" role="tabpanel"
+                            aria-labelledby="list-profile-list">
+                            <div class="row py-4">
+                                <div class="col-md-5 d-flex align-items-center my-3">
+                                    <div class="bg-primary rounded-circle user-comment mr-3">USER</div>
+                                    <div>
+                                        <div>
+                                            <small>12/12/2020</small>
+                                        </div>
+                                        <strong>USER NAME</strong>
+                                    </div>
+                                </div>
+                                <div class="col-md-7 my-3">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <br> 
+                                    That watch looks like something Rihanna would wear.
+                                </div>
+                                <div class="col-12">
+                                    <div class="form d-flex">
+                                        <input type="text" class="form-control mr-2" placeholder="Write your review!">
+                                        <button class="btn btn-dark">Comment</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="m-0">
+                            <button class="btn btn-block py-3" style="box-shadow: none;" id="reviewsBtn">See more reviews</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="container  mb-5 radius shadow-lg">
-        <div class="row">
-            <div class="col-12 p-0">
-              <div class="list-group text-center font-weight-bold" id="list-tab" role="tablist">
-                <a class="list-group-item list-group-item-action active radius radius-bottom-0" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Descreption</a>
-                <a class="list-group-item list-group-item-action radius-bottom-0" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Reviews</a>
-              </div>
-            </div>
-            <div class="col-12 bg-light radius radius-top-0">
-              <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active py-5" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-                    Stainless steel case with a black leather strap. Fixed black PVD bezel showing tachymeter markings. 
-                    Silver and black dial with luminous hands and index hour markers. Arabic numerals mark the 3, 9 and 12 o'clock positions.
-                     Minute markers. 1/100th markings around the outer rim.
-                </div>
-                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
-                    <div class="row py-4">
-                        <div class="col-md-5 d-flex align-items-center my-3">
-                            <div class="bg-primary rounded-circle user-comment mr-3">USER</div>
-                            <div>
-                                <div>
-                                    <small>12/12/2020</small>
-                                </div>
-                                <strong>USER NAME</strong>
-                            </div>
-                        </div>
-                        <div class="col-md-7 my-3">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i> <br>
-                            That watch looks like something Rihanna would wear.
-                        </div>
-                    </div>
-                    <hr class="m-0">
-                    <button class="btn btn-block py-3" id="reviewsBtn">See more reviews</button>
-                </div>
-              </div>
-            </div>
-          </div>
-    </div>
-</div>
 </section>

@@ -1,257 +1,275 @@
 <section class="sec-color overflow-auto pt-5">
     <div class="filter-nav mb-3 pt-5">
-        <div class="container-fluid">
+        <div class="header text-center">
+            <h2 class="text-dark font-weight-bold">SHOP</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="d-flex justify-content-center breadcrumb" style="background-color: transparent;">
+                    <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="container-fluid px-5">
             <div class="row">
                 <div class="col-12">
-                    <div class="col-lg-8 offset-lg-2 offset-md-3  col-md-3 col sm-6 ">
-                        <div class="shap-icon ml-2">
-                            <button class="btn bg-light" type="button" id="prod-list"><i class="fas fa-list"></i></button>
-                            <button class="btn bg-light ml-1" type="button" id="prod-group"><i class="fas fa-th"></i></button>
-                        </div>
+                    <div class="shap-icon row">
+                            <div class="col-xl-2 col-lg-3 col-6 my-3 order-1 order-lg-1">
+                                <button class="btn bg-light shadow mx-1 my-2 my-sm-0" (click)="sidebarCollapse()">
+                                    <i class="fas fa-filter"></i>
+                                </button>
+                                <button class="btn bg-light shadow mx-1 my-2 my-sm-0" type="button" id="prod-list" (click)="getProductsList();">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                                <button class="btn bg-light shadow mx-1 my-2 my-sm-0" type="button" id="prod-group" (click)="getProductsGroup();">
+                                    <i class="fas fa-th"></i>
+                                </button>
+                            </div>
+                            <div class="col-xl-7 col-lg-5 col-12 my-3 order-3 order-lg-2">
+                                <span class="btn bg-light shadow font-weight-bold w-100" style="cursor: auto;">
+                                    <span>Products</span>
+                                </span>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-6 text-right my-3 order-2 order-lg-3">
+                                <span class="btn bg-light ml-3 shadow font-weight-bold my-2 my-md-0 filter-dropdown-list px-0">
+                                        <select class="form-control form-control-sm border-0" style="box-shadow: none; font-size: 12px;">
+                                            <option>Show: 12</option>
+                                            <option>Show: 24</option>
+                                            <option>Show: 36</option>
+                                            <option>Show: 50</option>
+                                        </select>
+                                </span>
+                                <span class="btn bg-light ml-3 shadow font-weight-bold my-2 my-md-0 filter-dropdown-list px-2">
+                                    <select class="form-control form-control-sm border-0" style="box-shadow: none; font-size: 12px;">
+                                        <option selected disabled hidden>Sort by</option>
+                                        <option>Default</option>
+                                        <option>Price</option>
+                                        <option>Rate</option>
+                                    </select>
+                                </span>
+                            </div>
                     </div>
-                   
                 </div>
-            </div>
-        </div>
-    </div>
-    
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-3 col-lg-2">
-                    <div class="sidebar">
-                            <div class="sidebar-box-2">
-                                <h2 class="heading">Categories</h2>
-                                <div class="fancy-collapse-panel">
-                  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                     <div class="panel panel-default">
-                         <div class="panel-heading" role="tab" id="headingOne">
-                             <h4 class="panel-title">
-                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Men's Fashion 
-                                 </a>
-                             </h4>
-                         </div>
-                         <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                             <div class="panel-body">
-                                 <ul>
-                                     <li><a href="#"> Clothes </a></li>
-                                     <li><a href="#"> Shoes </a></li>
-                                     <li><a href="#"> Watches </a></li>
-                                 </ul>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="panel panel-default">
-                         <div class="panel-heading" role="tab" id="headingTwo">
-                             <h4 class="panel-title">
-                                 <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Women's Fashion 
-                                 </a>
-                             </h4>
-                         </div>
-                         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                             <div class="panel-body">
-                                <ul>
-                                    <li><a href="#"> Clothes </a></li>
-                                    <li><a href="#">  Jewelry  </a></li>
-                                    <li><a href="#"> Shoes </a></li>
-                                    <li><a href="#"> Watches </a></li>
-                                </ul>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="panel panel-default">
-                         <div class="panel-heading" role="tab" id="headingThree">
-                             <h4 class="panel-title">
-                                 <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Accessories
-                                 </a>
-                             </h4>
-                         </div>
-                         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                             <div class="panel-body">
-                                <ul>
-                                    <li><a href="#"> Clothes </a></li>
-                                    <li><a href="#">  Jewelry  </a></li>
-                                    <li><a href="#"> Shoes </a></li>
-                                    <li><a href="#"> Watches </a></li>
-                                 </ul>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="panel panel-default">
-                         <div class="panel-head" role="tab" id="headingFour">
-                             <h4 class="panel-title">
-                                 <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree"> Sports & Fitness 
-                                 </a>
-                             </h4>
-                         </div>
-    
-                     </div>
-                     <div class="panel panel-default">
-                        <div class="panel-head" role="tab" id="headingFour">
-                            <h4 class="panel-title">
-                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree"> Bags 
-                                </a>
-                            </h4>
-                        </div>
-    
-                    </div>
-                  </div>
-               </div>
-            </div>
-            <div class="sidebar-box-2">
-                <h2 class="heading">Price Range</h2>
-                <div  class="colorlib-form-2" >
-                      <div class="row">
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label for="guests">Price from :</label>
-                            <div class="form-field">
-                              <i class="icon icon-arrow-down3"></i>
-                              <select name="people" id="people" class="form-control">
-                                <option value="#">1</option>
-                                <option value="#">200</option>
-                                <option value="#">300</option>
-                                <option value="#">400</option>
-                                <option value="#">1000</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label for="guests">Price to :</label>
-                            <div class="form-field">
-                              <i class="icon icon-arrow-down3"></i>
-                              <select name="people" id="people" class="form-control">
-                                <option value="#">2000</option>
-                                <option value="#">4000</option>
-                                <option value="#">6000</option>
-                                <option value="#">8000</option>
-                                <option value="#">10000</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                            </div>
-                        </div>
-                </div>
-                <div class="col-md-9 sec-color">
+                <div class="col-12 sec-color mt-4">
                     <div class="product-group" id="product-group">
-    
-                        <div class="col-lg-3 col-md-6 float-left">
-                            <div class="product">
-                                <a class="img-wrapper" href="#">
-                                    <img src="../../assets/image/1.jpg" class="img-fluid" alt="Classic Brown Watch For Men" />
-                                </a>
-                                
-                                <div class="info">
-                                    <div class="title"> Classic Brown Watch For Men </div>
-                                    <div class="price">$34.99</div>
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-4 col-md-6 my-3" *ngFor="let item of Products">
+                                <div class="product">
+                                    <a class="img-wrapper" routerLink="/details/{{item?.id}}">
+                                        <img [src]="item?.imageUrl" class="img-fluid" style="filter: drop-shadow(2px 4px 8px #a3a3a3);"
+                                            [alt]="item?.category" />
+                                            <div class="new text-white" *ngIf="item?.newItem==true">New</div>
+                                            <div class="sale text-danger" *ngIf="item?.onSale==true"><b>discount <br> -{{item?.discount}}%</b></div>
+                                    </a>
+                                    <div class="info">
+                                        <div class="title"> {{item?.name}}</div>
+                                        <div class="price" *ngIf="item?.onSale==false">${{item?.price}}</div>
+                                        <div class="price" *ngIf="item?.onSale==true">
+                                            ${{(item?.price - (item?.price*(item?.discount/100))).toFixed(2)}}
+                                            <s class="ml-2">${{item?.price}}</s>
+                                        </div>
+                                    </div>
+                                    <div class="actions-wrapper">
+                                        <a (click)="addToFavourite(item);" class="add-btn cart pointer border border-top-0 border-bottom-0 m-0">
+                                            <i class="far fa-heart" style="width: 1.125em"></i>WISHLIST
+                                        </a>
+                                        <a (click)="addToCart(item);" class="add-btn wishlist pointer border border-top-0 border-bottom-0 m-0">
+                                            <i class="fas fa-shopping-cart" style="width: 1.125em"></i>CART
+                                        </a>
+                                    </div>
                                 </div>
-                                
-                                <div class="actions-wrapper">
-                                    <a href="#" class="add-btn wishlist "><i class="fas fa-shopping-cart w-18"></i> <span>Wishlist</span></a>
-                                    <a href="#" class="add-btn cart"><i class="far fa-heart w-18 "></i> Cart </a>
-                                </div>
-            
                             </div>
                         </div>
-    
-                        <div class="col-lg-3 col-md-6 float-left">
-                            <div class="product">
-                                <a class="img-wrapper" href="#">
-                                    <img src="../../assets/image/2.jpg" class="img-fluid" alt="Classic Brown Watch For Men" />
-                                </a>
-                                
-                                <div class="info">
-                                    <div class="title"> Classic Brown Watch For Men </div>
-                                    <div class="price">$34.99</div>
-                                </div>
-                                
-                                <div class="actions-wrapper">
-                                    <a href="#" class="add-btn wishlist"><i class="fas fa-shopping-cart w-18 "></i> Wishlist</a>
-                                    <a href="#" class="add-btn cart"><i class="far fa-heart w-18"></i> Cart </a>
-                                </div>
-            
-                            </div>
+                        <div *ngIf="NoProductsAvailable != null" class="bg-white p-5 rounded-lg shadow">
+                            <h6 class="text-muted text-center">{{NoProductsAvailable}}</h6>
                         </div>
-    
-                        <div class="col-lg-3 col-md-6 float-left">
-                            <div class="product">
-                                <a class="img-wrapper" href="#">
-                                    <img src="../../assets/image/3.jpg" class="img-fluid" alt="Classic Brown Watch For Men" />
-                                </a>
-                                <div class="note no-stock">Out of stock</div>
-                                <div class="info">
-                                    <div class="title"> Classic Brown Watch For Men </div>
-                                    <div class="price">$34.99</div>
-                                </div>
-                                
-                                <div class="actions-wrapper">
-                                    <a href="#" class="add-btn wishlist"><i class="fas fa-shopping-cart w-18"></i> Wishlist</a>
-                                    <a href="#" class="add-btn cart"><i class="far fa-heart w-18"></i> Cart </a>
-                                </div>
-            
-                            </div>
-                        </div>
-    
-                        <div class="col-lg-3 col-md-6 float-left">
-                            <div class="product">
-                                <a class="img-wrapper" href="#">
-                                    <img src="../../assets/image/4.jpg" class="img-fluid" alt="Classic Brown Watch For Men" />
-                                </a>
-                                <div class="note on-sale">On Sale</div>
-                                <div class="info">
-                                    <div class="title"> Classic Brown Watch For Men </div>
-                                    <div class="price">$34.99</div>
-                                </div>
-                                
-                                <div class="actions-wrapper">
-                                    <a href="#" class="add-btn wishlist"><i class="fas fa-shopping-cart w-18"></i> Wishlist</a>
-                                    <a href="#" class="add-btn cart"><i class="far fa-heart w-18"></i> Cart </a>
-                                </div>
-            
-                            </div>
-                        </div>
-    
                     </div>
                     <div class="col-12">
-                        <div class="product-list " id="product-list">
-                            <div class="col-md-4 col-sm-12 float-left">
-                                <div class="wrapper-img">
-                                    <img src="../../assets/image/1.jpg" class="product-img" alt="">
-                                </div>
-                                <div class="note on-new">New</div>
-                
-                            </div>
-                            <div class="col-md-8 col-sm-12 float-left text-left">
-                                <div class="item-info">
-                                    <h1 class="mb-0">Classic Brown Watch For Men</h1>
-                                    <div class="stars">
-                                        <input type="radio" id="star1" name="rating" value="1" /><input type="radio" id="star2" name="rating" value="2" /><input type="radio" id="star3" name="rating" value="3" /><input type="radio" id="star4" name="rating" value="4" /><input type="radio" id="star5" name="rating" value="5" />
-                                        
-                                        <label for="star1" aria-label="Banana">1 star</label><label for="star2">2 stars</label><label for="star3">3 stars</label><label for="star4">4 stars</label><label for="star5">5 stars</label>
+                        <div  id="product-list">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="row product-list my-4" *ngFor="let item of Products;let i = index">
+                                        <div class="col-lg-3 col-sm-12 d-flex justify-content-center align-items-center">
+                                            <div routerLink="/details/{{item?.id}}" class="pointer">
+                                                <img [src]="item?.imageUrl" class="img-fluid"
+                                                style="filter: drop-shadow(2px 4px 8px #585858);" [alt]="item?.category">
+                                            </div>
+                                            <div class="note on-new" *ngIf="item?.newItem == true ">New</div>
                                         </div>
-                                    <div class="font-weight-bold my-1">$34.99</div>
-                                    <div class="product-info">
-                                        <p class="product-paragraph">Guest it he tears aware as. Make my no cold of need. He been past in by my hard. Warmly thrown oh he...</p>
+                                        <div class="col-lg-8 col-sm-12 ml-4 text-left">
+                                            <div class="item-info">
+                                                <h1 class="mb-0">{{item?.name}}</h1>
+
+                                                <div class="stars">
+                                                    <input type="radio" id="star1{{i}}" name="rating{{i}}" value="1" (click)="setRate(i,item?.id , 1);"/>
+                                                    <input type="radio" id="star2{{i}}" name="rating{{i}}" value="2" (click)="setRate(i,item?.id , 2);"/>
+                                                    <input type="radio" id="star3{{i}}" name="rating{{i}}" value="3" (click)="setRate(i,item?.id , 3);"/>
+                                                    <input type="radio" id="star4{{i}}" name="rating{{i}}" value="4" (click)="setRate(i,item?.id , 4);"/>
+                                                    <input type="radio" id="star5{{i}}" name="rating{{i}}" value="5" (click)="setRate(i,item?.id , 5);"/>
+                        
+                                                    <label for="star1{{i}}" aria-label="Banana">1 star</label>
+                                                    <label for="star2{{i}}">2 stars</label>
+                                                    <label for="star3{{i}}">3 stars</label>
+                                                    <label for="star4{{i}}">4 stars</label>
+                                                    <label for="star5{{i}}">5 stars</label>
+                                                </div>
+
+                                                <div class="text-danger h6" style="width: fit-content;"
+                                                    *ngIf="item?.onSale == true "><b>Discount  {{item?.discount}}%</b>
+                                                </div>
+                                                <div class="font-weight-bold my-1 h3"  *ngIf="item?.onSale==false">
+                                                    ${{item?.price}}
+                                                </div>
+                                                <div class="font-weight-bold my-1 h3"  *ngIf="item?.onSale==true">
+                                                    <s class="mr-3">${{item?.price}}</s>
+                                                    ${{(item?.price - (item?.price*(item?.discount/100))).toFixed(2)}}
+                                                </div>
+                                                <div class="product-info">
+                                                    <p class="product-paragraph">{{item?.describtion}}</p>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <a class="pointer" (click)="addToCart(item);">
+                                                        <i class="d-flex justify-content-center align-items-center fas fa-shopping-cart product-icon"></i> 
+                                                    </a>
+                                                    <a class="pointer" (click)="addToFavourite(item);">
+                                                        <i class="d-flex justify-content-center align-items-center far fa-heart product-icon ml-1"></i> 
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="">
-                                        <a href="#"><i class="fas fa-shopping-cart fa-3x product-icon"></i> </a>
-                                        <a href="#"><i class="far fa-heart fa-3x product-icon ml-1"></i>  </a>
-                                    </div>
-                
                                 </div>
                             </div>
                         </div>
                     </div>
-                
+                </div>
             </div>
         </div>
     </div>
-    
-    
-    
-    
-    </section>
+</section>
+
+<aside id="FilterSidebar" class="active pt-5">
+        <div class="sidebar">
+            <div class="sidebar-box-2 pl-5 ml-5" style="height: 400px; overflow-y: auto;overflow-x: hidden;">
+                <div class="d-flex justify-content-between">
+                    <h2 class="heading text-dark mb-4 mt-3">Categories</h2>
+                    <div class="text-right">
+                        <button class="btn" style=" box-shadow: none;" (click)="sidebarCollapse()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="fancy-collapse-panel">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                                    aria-expanded="true" aria-controls="collapseOne"> Men's Fashion
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
+                                            aria-labelledby="headingOne">
+                                            <div class="panel-body">
+                                                <ul>
+                                                    <li><a routerLink='/products/men-clothes' (click)="sidebarCollapse()"> Clothes </a></li>
+                                                    <li><a routerLink='/products/men-shoes'   (click)="sidebarCollapse()"> Shoes </a></li>
+                                                    <li><a routerLink='/products/men-watches' (click)="sidebarCollapse()"> Watches </a></li>
+                                                    <li><a routerLink='/products/men-jewelry' (click)="sidebarCollapse()"> Jewelry </a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                        </div>
+                        <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                                                    href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    Women's Fashion
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+                                            aria-labelledby="headingTwo">
+                                            <div class="panel-body">
+                                                <ul>
+                                                    <li><a (click)="sidebarCollapse()" routerLink='/products/women-clothes'> Clothes </a></li>
+                                                    <li><a (click)="sidebarCollapse()" routerLink='/products/women-jewelry'> Jewelry </a></li>
+                                                    <li><a (click)="sidebarCollapse()" routerLink='/products/women-shoes'> Shoes </a></li>
+                                                    <li><a (click)="sidebarCollapse()" routerLink='/products/women-watches'> Watches </a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                        </div>
+                        <div class="panel panel-default">
+                                        <div class="panel-head" role="tab" id="headingFour">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                                                    routerLink="/products/kids-fashion" aria-expanded="false"
+                                                    aria-controls="collapseThree" (click)="sidebarCollapse()"> Kids Fashion
+                                                </a>
+                                            </h4>
+                                        </div>
+                        </div>
+                        <div class="panel panel-default">
+                                        <div class="panel-head" role="tab" id="headingFour">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                                                    routerLink="/products/sports-fitness"    aria-expanded="false" 
+                                                    aria-controls="collapseThree" (click)="sidebarCollapse()"> Sports & Fitness
+                                                </a>
+                                            </h4>
+                                        </div>
+                        </div>
+                        <div class="panel panel-default">
+                                        <div class="panel-head" role="tab" id="headingFour">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                                                    routerLink="/products/bags" aria-expanded="false"
+                                                    aria-controls="collapseThree" (click)="sidebarCollapse()"> Bags
+                                                </a>
+                                            </h4>
+                                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="sidebar-box-2 w-75">
+                            <h2 class="heading">Price Range</h2>
+                            <div class="colorlib-form-2">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="guests">Price from :</label>
+                                            <div class="form-field">
+                                                <i class="icon icon-arrow-down3"></i>
+                                                <select name="people" id="people" class="form-control">
+                                                    <option value="#">1</option>
+                                                    <option value="#">200</option>
+                                                    <option value="#">300</option>
+                                                    <option value="#">400</option>
+                                                    <option value="#">1000</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="guests">Price to :</label>
+                                            <div class="form-field">
+                                                <i class="icon icon-arrow-down3"></i>
+                                                <select name="people" id="people" class="form-control">
+                                                    <option value="#">2000</option>
+                                                    <option value="#">4000</option>
+                                                    <option value="#">6000</option>
+                                                    <option value="#">8000</option>
+                                                    <option value="#">10000</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            </div> -->
+        </div>
+</aside>

@@ -1,9 +1,49 @@
+/* header section */
+#section-home{
+    background-image: url("./assets/test/bg-header.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat",sans-serif;
+}
+
+#section-home .content ol{
+    text-transform: uppercase;
+}
+
+#section-home .content h1{
+    font-weight: 800;
+    font-size: 40px;
+}
+.breadcrumb{
+    background-color: transparent !important;
+    font-weight: 800;
+}
+
+.breadcrumb li.active{
+    color: #fff;
+}
+.breadcrumb li:not(.active){
+    color: #8E88B8 !important;
+}
+
+@media all and (max-width:991px){
+    #section-home .content{
+        flex-direction: column;
+    }
+}
+
+// defaults
 
 ::selection {
     background-color: #7571f9;
     color: #fff;
 }
 
-body{
-    overflow: hidden;
+.pointer{
+    cursor: pointer;
 }

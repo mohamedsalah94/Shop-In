@@ -1,0 +1,83 @@
+<header id="section-home" class="pt-5 mt-5">
+    <div class="container p-0">
+        <div class="content d-flex justify-content-between align-items-center">
+            <h1 class="page-title text-white">Dashboard</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a routerLink="/home" class="text-reset">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</header>
+<section class="py-5">
+    <div class="container-fluid px-5 py-5">
+        <div class="mx-5">
+            <div class="d-flex justify-content-between">
+                <h2 class="text-dark my-3">#Products Controller</h2>
+                <button class="btn btn-info my-3" routerLink='add-products'>
+                    <i class="fas fa-plus mr-2"></i>Add Product
+                </button>
+            </div>
+            <table class="table table-hover table-striped table-bordered">
+                <thead class="text-center">
+                    <tr class="thead-dark">
+                        <th>#</th>
+                        <th>Title & Discription</th>
+                        <th>Details</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <tr *ngFor="let item of Products; let i = index">
+                        <td>
+                            {{i+1}}
+                        </td>
+                        <td style="max-width:200px" class="text-left">
+                            <h6>{{item?.name}}</h6>
+                            <em class="text-muted">
+                                {{item?.describtion}}
+                            </em>
+                        </td>
+                        <td style="text-transform: capitalize; font-weight: 600;">
+                            <em class="text-primary">
+                                <span class="text-dark">category:</span> {{item?.category}}
+                            </em> <br>
+                            <em class="text-primary">
+                                <span class="text-dark">price:</span> {{item?.price}}$
+                            </em><br>
+                            <em class="text-primary">
+                                <span class="text-dark">new Item:</span> {{item?.newItem}}
+                            </em><br>
+                            <em class="text-primary">
+                                <span class="text-dark">out Of Stock:</span> {{item?.outOfStock}}
+                            </em><br>
+                            <em class="text-primary">
+                                <span class="text-dark">on Sale:</span> {{item?.onSale}}
+                            </em> <br>
+                            <em class="text-primary">
+                                <span class="text-dark">Discount:</span> {{item?.discount}}%
+                            </em>
+                        </td>
+                        <td style="max-width: 100px;">
+                            <img [src]="item?.imageUrl" alt="item image" class="img-fluid"> 
+                        </td>
+                        <td>
+                            <a routerLink="update-products/{{item?.id}}" class="btn btn-warning pointer"><i class="fas fa-edit"></i></a> |
+                            <a (click)="DeleteProducts(item)" class="btn btn-danger pointer"><i class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <mat-paginator
+                [length]="paginationLength"
+                [pageSize]="5"
+                [pageSizeOptions]="[5, 10, 15, 25]"
+                (page)="onPageChanged($event)"
+                aria-label="Select page">
+            </mat-paginator>
+        </div>
+    </div>
+</section>

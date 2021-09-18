@@ -9,14 +9,13 @@
                 <ol class="breadcrumb text-center">
                     <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
                     <li class="breadcrumb-item"><a  routerLink="/shoppingCart">Shopping Cart</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Check out</li>
+                    <li class="breadcrumb-item active" style="color: rgb(124, 124, 124); font-weight: 600;" aria-current="page">Check out</li>
                 </ol>
             </nav>
         </div>
         <!-- checkout header  -->
 
         <!-- shipping address -->
-
         <div class="row">
             <div class="col-lg-9">
                 <div class="shipping-address-box bg-white   shadow mt-3">
@@ -53,15 +52,15 @@
                         <table class="w-100">
                             <tr>
                                 <th>SubTotal</th>
-                                <th>500.00 L.E</th>
+                                <th>${{checkOutPrice}}</th>
                             </tr>
                             <tr>
                                 <th>Promo</th>
-                                <th>00.00 L.E</th>
+                                <th>$00.00</th>
                             </tr>
                             <tr>
                                 <th>Total</th>
-                                <th>500.00 L.E</th>
+                                <th>${{checkOutPrice}}</th>
                             </tr>
                         </table>
                     </div>
@@ -75,8 +74,9 @@
             <!-- summary bar  -->
 
         </div>
+
+        <!-- payment methods -->
         <div class="row">
-            <!-- payment methods -->
             <div class="col-lg-9">
                 <div class="payment-method-box  shadow bg-white mt-3">
                     <div class="payment-method-title text-center">
@@ -86,16 +86,13 @@
                         <div class="row">
                             <div class="col-4">
                                 <div class="list-group text-center" id="list-tab" role="tablist">
-
                                     <a class="list-group-item list-group-item-action active" id="list-creditcard-list"
                                         data-toggle="list" href="#list-creditcard" role="tab"
                                         aria-controls="creditcard"><i class="far fa-credit-card mr-2 fa-2x"></i>Credit
                                         Card</a>
-
                                     <a class="list-group-item list-group-item-action " id="list-paypal-list"
                                         data-toggle="list" href="#list-paypal" role="tab" aria-controls="paypal"><i
                                             class="fab fa-paypal mr-2 fa-2x"></i>Paypal</a>
-
                                     <a class="list-group-item list-group-item-action " id="list-cash-list"
                                         data-toggle="list" href="#list-cash" role="tab" aria-controls="cash"> <i
                                             class="fas fa-hand-holding-usd mr-2 fa-2x"></i>Cash</a>
@@ -103,7 +100,6 @@
                             </div>
                             <!-- payment menu  -->
                             <div class="col-8">
-
                                 <div class="tab-content" id="nav-tabContent">
 
                                     <div class="tab-pane fade show active" id="list-creditcard" role="tabpanel"
@@ -137,29 +133,23 @@
 
                                     <div class="tab-pane fade show " id="list-cash" role="tabpanel"
                                         aria-labelledby="list-cash-list">
-                                        <div class="form-group">
-                                            <input class="w-100" type="password" placeholder="">
+                                        <div class="form-group text-center">
+                                            <!-- <input class="w-100" type="password" placeholder=""> -->
+                                            <h2 class="text-dark"><strong>Cash on Delivery</strong></h2>
+                                            <p class="text-muted">Pay cash when the product is delivered to you.</p>
                                         </div>
                                         <button class="btn w-100" disabled>Confirm Order</button>
                                     </div>
 
                                 </div>
-
                             </div>
-
-                            <!-- payment menu  -->
-
                         </div>
                     </div>
                     <div class="payment-method-footer text-center">
-
                         <a href="#" class="py-3"><i class="fas fa-less-than mr-2 fa-1x"></i>Edit Your Payment Method</a>
                     </div>
                 </div>
             </div>
-            <!-- payment methods -->
         </div>
-
-
     </div>
 </section>
